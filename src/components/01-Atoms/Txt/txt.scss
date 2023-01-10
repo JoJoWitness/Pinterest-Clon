@@ -1,0 +1,6 @@
+@use '../../../assets/style/colors' as color;
+
+.previewTxt{
+  color: color.$black-fontBg-clon;
+  font-size: 15px;
+}

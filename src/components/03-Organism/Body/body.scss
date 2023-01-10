@@ -1,0 +1,9 @@
+.body{
+  padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: hidden;
+}

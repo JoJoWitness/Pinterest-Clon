@@ -1,0 +1,22 @@
+@use '../../../assets/style/colors' as color;
+
+.feedBtn, .iconBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em 1rem 0.5em 1rem;
+  border: none;
+  background-color: transparent;
+  border-radius: 30px;
+  font-size: 20px;
+}
+
+.iconBtn{
+  width: 32px;
+  height: auto;
+}
+
+.feedBtn:hover{
+  color: color.$white-font-clon;
+  background-color: color.$black-fontBg-clon;
+}

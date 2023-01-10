@@ -1,0 +1,27 @@
+@use '../../../assets/style/colors' as color;
+
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  padding: 0px 30px 0px 30px;
+  margin: 0px;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: color.$pink-clon;
+}
+
+.ico{
+  width: 30px;
+  height: auto;
+  filter: color.$to-White;
+}
