@@ -5,7 +5,10 @@ import { SearchBar } from "../../01-Atoms/SearchBar/SearchBar";
 import Paw from '../../../assets/icons/Paw.svg'
 import './navbar.scss'
 
-export function NavBar(){
+export function NavBar(props){
+
+  const {signIn, signOut, currentUser} = props
+
   return(
     <nav className="navbar">
       <span 
@@ -17,7 +20,11 @@ export function NavBar(){
       <FeedButtons/>
       <SearchBar
       className='searchNavBar'/>
-      <UserButtons/>
+      <UserButtons
+      currentUser={currentUser}
+      signIn={signIn}
+      signOut={signOut}
+      />
     </nav>
   )
 }

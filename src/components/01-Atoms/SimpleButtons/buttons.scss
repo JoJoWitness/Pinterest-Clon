@@ -14,7 +14,14 @@
 .iconBtn{
   width: 32px;
   height: auto;
+
+  img{
+    width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  }
 }
+
 
 .feedBtn:hover{
   color: color.$white-font-clon;

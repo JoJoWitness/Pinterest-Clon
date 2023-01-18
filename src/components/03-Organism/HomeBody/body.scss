@@ -1,4 +1,8 @@
+@use '../../../assets/style/colors' as color;
+
 .body{
+  background-color: color.$white-bg-clon;
+  row-gap: 20px;
   padding: 20px;
   display: flex;
   justify-content: space-evenly;
