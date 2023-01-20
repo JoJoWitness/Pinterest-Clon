@@ -1,0 +1,11 @@
+{
+  "projects": {
+    "default": "jojopinterest-343e6",
+    "JoJo Pinterest": "jojopinterest-343e6",
+    "PinUpload": "jojopinterest-343e6",
+    "JoJoPinterest": "jojopinterest-343e6",
+    "Pin": "jojopinterest-343e6"
+  },
+  "targets": {},
+  "etags": {}
+}

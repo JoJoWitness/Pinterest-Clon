@@ -13,7 +13,8 @@ import { getFirestore, collection, addDoc, query, orderBy, limit, onSnapshot, se
 import { getStorage, ref, uploadBytesResumable, getDownloadURL,} from 'firebase/storage';
 
 
-
+export const db = getFirestore(app);
+export const storage = getStorage(app);
 
 const App = () => {
 
@@ -30,7 +31,10 @@ const App = () => {
 const provider = new GoogleAuthProvider();
 const auth = getAuth(app);
 const db = getFirestore(app);
-
+const storage = getStorage(app);
+const storageRef = ref(storage);
+const imagesRef = ref(storage, 'images');
+const spaceRef = ref(storage, 'images/space.jpg');
 
 
 const signIn = async function signInPopUp() {
@@ -54,37 +58,7 @@ const signOutUser = function signOutUser() { signOut(auth).then(() => {
 }).catch((error) => {
 });}
 
-// async function ryu() {try {
-//   const docRef = await addDoc(collection(db, "users"), {
-//     first: "Ada",
-//     last: "Lovelace",
-//     born: 1815
-//   });
-//   console.log("Document written with ID: ", docRef.id);
-// } catch (e) {
-//   console.error("Error adding document: ", e);
-// }
-// }ryu()
 
-
-// async function riu() {try {
-//   const docRef = await addDoc(collection(db, "users"), {
-//     first: "Alan",
-//     middle: "Mathison",
-//     last: "Turing",
-//     born: 1912
-//   });
-
-//   console.log("Document written with ID: ", docRef.id);
-// } catch (e) {
-//   console.error("Error adding document: ", e);
-// }
-// }riu()
-
-const querySnapshot = async function() { await getDocs(collection(db, "users"));}
-querySnapshot.forEach((doc) => {
-  console.log(`${doc.id} => ${doc.data()}`);
-});
 
 
 
@@ -98,13 +72,15 @@ querySnapshot.forEach((doc) => {
       signIn={signIn}
       signOut={signOutUser}
     />
-    {/* {
+    {
     (createPinWindow) 
     ? <PinWindow/>
     : <HomeBody/>
-    } */}
+    }
 
-    <UploadWindow/>
+    {/* <UploadWindow
+      currentUser={currentUser}
+    /> */}
     </>
   )
 };

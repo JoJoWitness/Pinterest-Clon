@@ -1,19 +1,21 @@
 import React from "react";
 import { PreviewTxt } from "../../01-Atoms/Txt/PreviewTxt";
-import './imgPreview.scss'
+import './PinPreview.scss'
 import Cover from '../../../assets/imgs/cover.png'
 import Cover2 from '../../../assets/imgs/cover2.jpg'
 import Cover3 from '../../../assets/imgs/cover3.png'
 import Cover4 from '../../../assets/imgs/cover4.png'
 
-export const ImgPreview = (props) => {
+export const PinPreview = (props) => {
+
+  const {pin} = props
   return(
     <div className='imgPreview'>
       <img
-        src={Cover}
+        src={pin.src}
       />
       <PreviewTxt
-        txt='JoJoLion Cover'
+        txt={pin.title}
         />
     </div>
   )
