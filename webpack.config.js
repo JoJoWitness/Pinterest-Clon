@@ -24,6 +24,7 @@ module.exports = {
   },
   devtool: 'source-map',
   module: {
+    
     rules: [
       {
         test: /\.(s[ac]ss||css)$/,

@@ -16,15 +16,21 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL,} from 'firebase/
 export const db = getFirestore(app);
 export const storage = getStorage(app);
 
+initializeApp(firebaseConfig)
+
 const App = () => {
 
   const [createPinWindow, useCreatePinWindow] = useState(false) 
+
   const [currentUser, setCurrentUser] = useState({
     displayName: "",
     email: "",
     photoURL: "",
     emailVerified:"",
 });
+
+
+
 
 
 
@@ -72,11 +78,9 @@ const signOutUser = function signOutUser() { signOut(auth).then(() => {
       signIn={signIn}
       signOut={signOutUser}
     />
-    {
-    (createPinWindow) 
-    ? <PinWindow/>
-    : <HomeBody/>
-    }
+    
+    <HomeBody
+    />
 
     {/* <UploadWindow
       currentUser={currentUser}
@@ -87,7 +91,7 @@ const signOutUser = function signOutUser() { signOut(auth).then(() => {
 
 // initializeApp(firebaseAppConfig);
 
-initializeApp(firebaseConfig)
+
 
 
 export default App
