@@ -3,10 +3,13 @@ import './imgUpload.scss'
 
 export const ImgUpload = (props) => {
   const {pinImg, setPinImg} = props;
+  const [previewImg, setPreviewImg] = useState()
  
 
   function handleChange(event) {
-    setPinImg(URL.createObjectURL(event.target.files[0]))
+    setPreviewImg(URL.createObjectURL(event.target.files[0]))
+    setPinImg(event.target.files[0])
+    console.log(pinImg)
   }
 
   return(
@@ -19,7 +22,7 @@ export const ImgUpload = (props) => {
       accept="image/*"
       onChange={handleChange}/>
     <p >Maximun image size is 5Mb </p>
-    <img className="imgPreview" src={pinImg}></img>
+    <img className="imgPreview" src={previewImg}></img>
     </label>
   );
 }

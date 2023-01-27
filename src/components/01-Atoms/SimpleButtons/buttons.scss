@@ -27,3 +27,15 @@
   color: color.$white-font-clon;
   background-color: color.$black-fontBg-clon;
 }
+
+.colorBtn{
+  width: 100px;
+  height: 48px;
+  border: none;
+  font-size: 20px;
+  border-radius: 30px;
+  color: color.$white-font-clon;
+  background-color: color.$pink-clon;
+  justify-self: flex-end;
+  font-weight: 500;
+}

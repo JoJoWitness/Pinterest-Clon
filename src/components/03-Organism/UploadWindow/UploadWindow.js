@@ -23,14 +23,16 @@ export const UploadWindow = (props) =>{
     console.log(currentUser)
    
     try {
-     const pinRef = await addDoc(collection(db, "Users", currentUser.displayName, "Pin"), {
+     const pinRef = await addDoc(collection(db, "Pin"), {
       title: title,
       description: description,
       file: "",
-      timestamp: serverTimestamp()
+      timestamp: serverTimestamp(),
+      user: currentUser.displayName,
+      uid: currentUser.uid,
     });
 
-    const filePath = `${getAuth(app).currentUser.uid}/${pinRef.id}/${file.name}`;
+    const filePath = `${pinRef.id}`;
     const pinImgRef = ref(getStorage(app), filePath);
     const fileSnapshot = await uploadBytesResumable(pinImgRef, file);
     const publicImageUrl = await getDownloadURL(pinImgRef);

@@ -2,13 +2,13 @@ import React, {useState, useEffect}  from "react";
 import { HomeBody } from "./components/03-Organism/HomeBody/HomeBody";
 import { NavBar } from "./components/03-Organism/Navbar/Navbar";
 import { UploadWindow } from "./components/03-Organism/UploadWindow/UploadWindow";
+import { PinDetails } from "./components/03-Organism/PinDetails/PinDetails";
 import './main.scss'
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./firebase-config";
 import { app } from "./firebase-config";
 import {getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut,} from 'firebase/auth';
-
-
+import { Route, Routes, Outlet} from "react-router-dom";;
 import { getFirestore, collection, addDoc, query, orderBy, limit, onSnapshot, setDoc, updateDoc, doc, serverTimestamp,} from 'firebase/firestore';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL,} from 'firebase/storage';
 
@@ -47,11 +47,13 @@ const signIn = async function signInPopUp() {
 
   await signInWithPopup(auth, provider)
   const user = auth.currentUser
+  console.log(user)
   setCurrentUser({
       displayName: user.displayName,
       email: user.email,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
+      uid: user.uid,
 })};
 
 const signOutUser = function signOutUser() { signOut(auth).then(() => {
@@ -78,13 +80,14 @@ const signOutUser = function signOutUser() { signOut(auth).then(() => {
       signIn={signIn}
       signOut={signOutUser}
     />
-    
-    <HomeBody
-    />
+    <Routes>
+      <Route index element={<HomeBody/>}/>
+      <Route path='UploadPin'element={<UploadWindow currentUser={currentUser}/>}/>
+      <Route path='Pin/:uri' element={<PinDetails/>}/>
+    </Routes> 
 
-    {/* <UploadWindow
-      currentUser={currentUser}
-    /> */}
+    
+
     </>
   )
 };
